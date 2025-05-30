@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+
 function App() {
   const [file, setFile] = useState(null);
   const [originalCaption, setOriginalCaption] = useState("");
@@ -23,10 +25,7 @@ function App() {
 
     try {
       // Step 1: Caption + Translation
-      const res = await axios.post(
-        `http://localhost:8000/caption/?lang=${lang}`,
-        formData
-      );
+      const res = await axios.post(`${API_URL}/caption/?lang=${lang}`, formData);
 
       if (res.data.error) {
         setError(res.data.error);
@@ -37,7 +36,7 @@ function App() {
       setTranslatedCaption(res.data.translated_caption);
 
       // Step 2: Fetch Audio
-      const audioRes = await axios.get("http://localhost:8000/audio", {
+      const audioRes = await axios.get(`${API_URL}/audio`, {
         responseType: "blob",
       });
 
