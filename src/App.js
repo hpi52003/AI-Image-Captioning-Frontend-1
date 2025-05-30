@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+// ✅ Updated backend URL (Render)
+const API_URL = "https://ai-image-caption-generation-backend-2-1.onrender.com";
 
 function App() {
   const [file, setFile] = useState(null);
@@ -118,6 +119,5 @@ function App() {
 
 export default App;
 
-    
-    
-        
+     
+                
