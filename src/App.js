@@ -14,6 +14,7 @@ function App() {
 
   const handleUpload = async () => {
     if (!file) return;
+
     setLoading(true);
     setError("");
     setAudioUrl(null);
@@ -116,3 +117,7 @@ function App() {
 }
 
 export default App;
+
+    
+    
+        
